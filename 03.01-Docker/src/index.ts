@@ -4,6 +4,8 @@ import express, { Request, Response } from "express";
 import swaggerUi from "swagger-ui-express";
 
 import "./database";
+import "./shared/container";
+
 import { FgGreen } from "./console/Colors";
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
