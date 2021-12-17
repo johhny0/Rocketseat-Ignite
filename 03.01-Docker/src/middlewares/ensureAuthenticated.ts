@@ -22,7 +22,6 @@ export async function ensureAuthenticated(
 
         const [, token] = authHeader.split(" ");
 
-        console.log("TOKEN", token);
         const { sub } = verify(
             token,
             process.env.JWT_KEY as string
