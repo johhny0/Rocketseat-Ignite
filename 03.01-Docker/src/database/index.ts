@@ -1,3 +1,3 @@
 import { createConnection } from "typeorm";
 
-createConnection();
+createConnection().then(() => console.info("BD is Connected"));

@@ -1,4 +1,4 @@
-import { Specification } from "../../models/Specification";
+import { Specification } from "../../entities/Specification";
 import { ISpecificationsRepository } from "../../repositories/ISpecificationsRepository";
 
 interface ISpecificationRequest {
@@ -9,13 +9,17 @@ interface ISpecificationRequest {
 export class CreateSpecificationUseCase {
     constructor(private repository: ISpecificationsRepository) {}
 
-    execute({ name, description }: ISpecificationRequest): Specification {
-        const specificationAlreadyExists = this.repository.findByName(name);
+    async execute(
+        specificationRequest: ISpecificationRequest
+    ): Promise<Specification> {
+        const specificationAlreadyExists = await this.repository.findByName(
+            specificationRequest.name
+        );
 
         if (specificationAlreadyExists) {
             throw new Error("Specification Already Exists");
         }
 
-        return this.repository.create({ name, description });
+        return this.repository.create(specificationRequest);
     }
 }

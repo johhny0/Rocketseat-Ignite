@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "ts-node-dev --inspect --respawn --pretty --transpile-only src/index.ts",
+    "dev": "ts-node-dev --inspect --respawn --pretty --transpile-only --poll src/index.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
   },
   "dependencies": {

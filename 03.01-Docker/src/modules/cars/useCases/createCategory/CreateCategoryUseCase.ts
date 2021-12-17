@@ -1,4 +1,4 @@
-import { Category } from "../../models/Category";
+import { Category } from "../../entities/Category";
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface ICategoryRequest {
@@ -9,8 +9,8 @@ interface ICategoryRequest {
 export class CreateCategoryUseCase {
     constructor(private repository: ICategoriesRepository) {}
 
-    execute({ name, description }: ICategoryRequest): Category {
-        const categoryAlreadyExists = this.repository.findByName(name);
+    async execute({ name, description }: ICategoryRequest): Promise<Category> {
+        const categoryAlreadyExists = await this.repository.findByName(name);
 
         if (categoryAlreadyExists) {
             throw new Error("Category Already Exists");

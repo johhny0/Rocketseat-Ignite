@@ -3,10 +3,9 @@ import { config } from "dotenv";
 import express, { Request, Response } from "express";
 import swaggerUi from "swagger-ui-express";
 
+import "./database";
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
-
-import "./database";
 
 config();
 
@@ -29,5 +28,5 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(router);
 
 app.listen(PORT, () => {
-    console.log(`Listening on http://localhost:${PORT}/`);
+    console.info(`Listening on http://localhost:${PORT}/`);
 });

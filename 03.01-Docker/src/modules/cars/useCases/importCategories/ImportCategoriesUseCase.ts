@@ -14,10 +14,10 @@ export class ImportCategoriesUseCase {
     async execute(file: Express.Multer.File): Promise<void> {
         const categories = await this.loadCategories(file);
 
-        categories.forEach((category) => {
+        categories.forEach(async (category) => {
             const { name, description } = category;
 
-            if (this.repository.findByName(name)) return;
+            if (await this.repository.findByName(name)) return;
 
             this.repository.create({ name, description });
         });
@@ -40,7 +40,7 @@ export class ImportCategoriesUseCase {
 
             stream.on("end", () => {
                 fs.unlink(file.path, () =>
-                    console.log(`Arquivo ${file.path} removido`)
+                    console.info(`Arquivo ${file.path} removido`)
                 );
             });
 
