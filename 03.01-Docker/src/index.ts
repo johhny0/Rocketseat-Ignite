@@ -4,6 +4,7 @@ import express, { Request, Response } from "express";
 import swaggerUi from "swagger-ui-express";
 
 import "./database";
+import { FgGreen } from "./console/Colors";
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
 
@@ -28,5 +29,5 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(router);
 
 app.listen(PORT, () => {
-    console.info(`Listening on http://localhost:${PORT}/`);
+    console.info(`${FgGreen}Listening on http://localhost:${PORT}/`);
 });
