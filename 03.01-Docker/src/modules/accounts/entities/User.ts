@@ -21,6 +21,9 @@ export class User {
     @Column({ name: "is_admin" })
     isAdmin!: boolean;
 
+    @Column()
+    avatar!: string;
+
     @CreateDateColumn()
     created_at!: Date;
 
