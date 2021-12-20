@@ -2,6 +2,7 @@ import { Parser } from "csv-parse";
 import fs from "fs";
 import { inject, injectable } from "tsyringe";
 
+import { deleteFile } from "../../../../utils/file";
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface ICategoryImport {
@@ -43,12 +44,7 @@ export class ImportCategoriesUseCase {
                 categories.push({ name, description });
             });
 
-            stream.on("end", () => {
-                fs.unlink(file.path, () =>
-                    console.info(`Arquivo ${file.path} removido`)
-                );
-            });
-
+            stream.on("end", () => deleteFile(file.path));
             parseFile.on("end", () => resolve(categories));
             parseFile.on("error", reject);
         });

@@ -1,7 +1,6 @@
-import { unlink } from "fs";
-import { resolve } from "path";
 import { inject, injectable } from "tsyringe";
 
+import { deleteFile } from "../../../../utils/file";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 interface IRequest {
@@ -24,11 +23,7 @@ export class UpdateUserAvatarUseCase {
         }
 
         if (user.avatar) {
-            const fullPath = resolve(`./files/avatar/${user.avatar}`);
-            unlink(fullPath, (err) => {
-                if (err) throw err;
-                console.log(`Deleted File: ${fullPath}`);
-            });
+            await deleteFile(`./files/avatar/${user.avatar}`);
         }
 
         user.avatar = avatar_file;
