@@ -10,15 +10,10 @@ describe("[CreateCategoryUseCase]", () => {
     let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
 
     beforeEach(() => {
-        if (!categoriesRepositoryInMemory) {
-            categoriesRepositoryInMemory = new CategoriesRepositoryInMemory();
-        }
-
-        if (!createCategoryUseCase) {
-            createCategoryUseCase = new CreateCategoryUseCase(
-                categoriesRepositoryInMemory
-            );
-        }
+        categoriesRepositoryInMemory = new CategoriesRepositoryInMemory();
+        createCategoryUseCase = new CreateCategoryUseCase(
+            categoriesRepositoryInMemory
+        );
     });
 
     it("Should be able to create a new category", async () => {
