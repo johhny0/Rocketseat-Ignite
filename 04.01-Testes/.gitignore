@@ -1,0 +1,12 @@
+yarn-error.log
+yarn.lock
+
+pgdata/
+
+.env
+
+files/avatar/*
+!files/avatar/.gitkeep
+
+files/tmp/*
+!files/tmp/.gitkeep
