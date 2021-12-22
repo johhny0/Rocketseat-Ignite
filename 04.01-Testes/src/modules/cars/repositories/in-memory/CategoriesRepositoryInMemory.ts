@@ -1,4 +1,5 @@
-import { Category } from "../../entities/Category";
+import { Category } from "@modules/cars/entities/Category";
+
 import {
     ICategoriesRepository,
     ICreateCategoryDTO,
@@ -8,13 +9,13 @@ export class CategoriesRepositoryInMemory implements ICategoriesRepository {
     categories: Category[] = [];
 
     async create(categoryDTO: ICreateCategoryDTO): Promise<Category> {
-        const categoriy = new Category();
+        const category = new Category();
 
-        Object.assign(categoriy, categoryDTO);
+        Object.assign(category, categoryDTO);
 
-        this.categories.push(categoriy);
+        this.categories.push(category);
 
-        return categoriy;
+        return category;
     }
 
     async findByName(name: string): Promise<Category | undefined> {

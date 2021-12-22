@@ -1,9 +1,9 @@
 import { Parser } from "csv-parse";
 import fs from "fs";
 import { inject, injectable } from "tsyringe";
+import { deleteFile } from "utils/file";
 
-import { deleteFile } from "../../../../utils/file";
-import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
+import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
 
 interface ICategoryImport {
     name: string;
