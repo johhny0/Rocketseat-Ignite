@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --pretty --transpile-only --poll src/index.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --pretty --transpile-only --poll src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "test": "jest"
   },

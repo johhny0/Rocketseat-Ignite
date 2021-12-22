@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { ensureAuthenticated } from "middlewares/ensureAuthenticated";
 import multer from "multer";
 
 import uploadConfig from "@config/upload";
 import { CreateCategoryController } from "@modules/cars/useCases/createCategory/CreateCategoryController";
 import { ImportCategoriesController } from "@modules/cars/useCases/importCategories/ImportCategoriesController";
 import { ListCategoriesController } from "@modules/cars/useCases/listCategories/ListCategoriesController";
+import { ensureAuthenticated } from "@shared/infra/http/middlewares/ensureAuthenticated";
 
 const categoryRoutes = Router();
 

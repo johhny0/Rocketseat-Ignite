@@ -4,13 +4,14 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
-import "./database";
-import "./shared/container";
+import "@app/shared/infra/typeorm";
+import "@shared/container";
 
-import { FgGreen } from "./console/Colors";
-import { AppError } from "./errors/AppError";
+import { FgGreen } from "@app/console/Colors";
+import swaggerFile from "@app/swagger.json";
+import { AppError } from "@shared/errors/AppError";
+
 import { router } from "./routes";
-import swaggerFile from "./swagger.json";
 
 config();
 

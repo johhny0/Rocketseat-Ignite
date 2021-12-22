@@ -7,6 +7,9 @@
         "moduleResolution": "node",
         "baseUrl": "./src",
         "paths": {
+            "@app/*": [
+                "*"
+            ],
             "@modules/*": [
                 "modules/*"
             ],
@@ -18,9 +21,6 @@
             ],
             "@utils/*": [
                 "utils/*"
-            ],
-            "@errors/*": [
-                "errors/*"
             ]
         },
         "resolveJsonModule": true,
