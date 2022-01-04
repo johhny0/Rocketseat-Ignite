@@ -2,13 +2,17 @@ import {
     Column,
     CreateDateColumn,
     Entity,
-    PrimaryGeneratedColumn,
+    JoinColumn,
+    ManyToOne,
+    PrimaryColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
+import { Category } from "./Category";
+
 @Entity("cars")
 export class Car {
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryColumn()
     id!: string;
 
     @Column()
@@ -27,13 +31,17 @@ export class Car {
     license_plate!: string;
 
     @Column()
-    fine_amount!: string;
+    fine_amount!: number;
 
     @Column()
     brand!: string;
 
     @Column()
     category_id!: string;
+
+    @JoinColumn({ name: "category_id" })
+    @ManyToOne(() => Category)
+    category!: Category;
 
     @CreateDateColumn()
     created_at!: Date;
@@ -42,7 +50,6 @@ export class Car {
         if (!this.id) {
             this.id = uuidV4();
             this.available = true;
-            this.created_at = new Date();
         }
     }
 }

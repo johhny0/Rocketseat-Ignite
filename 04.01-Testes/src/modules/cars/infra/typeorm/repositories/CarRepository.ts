@@ -12,11 +12,8 @@ export class CarsRepository implements ICarsRepository {
         this.repository = getRepository(Car);
     }
 
-    create({ name, description }: ICreateCarDTO): Promise<Car> {
-        const car = this.repository.create({
-            description,
-            name,
-        });
+    create(createCarDTO: ICreateCarDTO): Promise<Car> {
+        const car: Car = this.repository.create(createCarDTO);
 
         return this.repository.save(car);
     }
