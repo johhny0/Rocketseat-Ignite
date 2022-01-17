@@ -1,6 +1,6 @@
 import { container } from "tsyringe";
 
-import { CarsRepository } from "@app/modules/cars/infra/typeorm/repositories/CarRepository";
+import { CarsRepository } from "@app/modules/cars/infra/typeorm/repositories/CarsRepository";
 import { SpecificationsRepository } from "@app/modules/cars/infra/typeorm/repositories/SpecificationsRepository";
 import { ICarsRepository } from "@app/modules/cars/repositories/ICarsRepository";
 import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
