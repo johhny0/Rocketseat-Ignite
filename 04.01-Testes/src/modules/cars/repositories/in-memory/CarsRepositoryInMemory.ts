@@ -41,7 +41,10 @@ export class CarsRepositoryInMemory implements ICarsRepository {
                     listCarDTO.category_id === c.category_id
             );
 
-        console.log(carsAvailable);
         return carsAvailable;
+    }
+
+    async findById(id: string): Promise<Car | undefined> {
+        return this.cars.find((c) => c.id === id);
     }
 }

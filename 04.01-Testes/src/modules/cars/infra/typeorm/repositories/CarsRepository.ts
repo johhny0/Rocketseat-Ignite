@@ -36,4 +36,8 @@ export class CarsRepository implements ICarsRepository {
     findByLicensePlate(license_plate: string): Promise<Car | undefined> {
         return this.repository.findOne({ license_plate });
     }
+
+    findById(id: string): Promise<Car | undefined> {
+        return this.repository.findOne(id);
+    }
 }
