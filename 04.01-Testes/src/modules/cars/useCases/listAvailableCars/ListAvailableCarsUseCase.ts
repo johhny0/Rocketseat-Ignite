@@ -6,7 +6,7 @@ import { IListCarDTO } from "../../dtos/IListCarDTO";
 import { Car } from "../../infra/typeorm/entities/Car";
 
 @injectable()
-export class ListCarsUseCase {
+export class ListAvailableCarsUseCase {
     constructor(
         @inject("CarsRepository")
         private repository: ICarsRepository

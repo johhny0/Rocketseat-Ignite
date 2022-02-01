@@ -20,9 +20,14 @@ export class CarsRepository implements ICarsRepository {
     }
 
     async findAvailable(listCarDTO: IListCarDTO): Promise<Car[]> {
+        const filter = Object.fromEntries(
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            Object.entries(listCarDTO).filter(([_, v]) => v != null)
+        );
+
         return this.repository.find({
             where: {
-                ...listCarDTO,
+                ...filter,
                 available: true,
             },
         });
